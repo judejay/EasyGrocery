@@ -10,7 +10,7 @@ export type IProduct = {
     // countInStock: number;
     quantity?: number;
     // imageCover: string;
-    // images: string[];
+    image: string;
     // category: string;
     // createdAt: Date;
     // updatedAt: Date;

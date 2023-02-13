@@ -19,6 +19,7 @@ function Products() {
                                 name={product.name}
                                 price={product.price}
                                 slug={product.slug}
+                                image={product.image}
                             ></Product>
                         );
                     })}
