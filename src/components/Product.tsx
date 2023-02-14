@@ -16,8 +16,8 @@ const Product = ({ groceryId, name, price, quantity, slug, description, image }:
     return (
         <div className="w-48  bg-white shadow mx-auto px-4 mt-4 rounded  ">
             <div className=" flex-row font-sans ">
-                <div className="flex w-58 relative mt-4">
-                    <img src={image} height="95 px" alt={description} className="relative inset-0 w-100 object-fit" loading="lazy" />
+                <div className="flex items-center relative mt-4 ">
+                    <img src={image} alt={description} className="  object-cover aspect-square h-200 w-200" loading="lazy" />
                 </div>
                 <div className="flex flex-wrap">
                     <h1 className="flex-auto text-lg font-semibold text-black-900">{name}</h1>

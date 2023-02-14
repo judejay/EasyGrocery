@@ -3,19 +3,13 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
 export type IProduct = {
     groceryId: string;
     name: string;
-    // avgRating: number;
-    // numRating: number;
     price: number;
     description: string;
-    // countInStock: number;
+    countInStock: number;
     quantity?: number;
-    // imageCover: string;
     image: string;
-    // category: string;
-    // createdAt: Date;
-    // updatedAt: Date;
+    category: string;
     slug: string;
-    // id: string;
 };
 
 export const productApi = createApi({
@@ -28,17 +22,7 @@ export const productApi = createApi({
             query() {
                 return 'Grocery';
             },
-            // providesTags: (result) =>
-            //     result
-            //         ? [
-            //               ...result.map(({ id }) => ({
-            //                   type: 'Products' as const,
-            //                   id
-            //               })),
-            //               { type: 'Products', id: 'LIST' }
-            //           ]
-            //         : [{ type: 'Products', id: 'LIST' }],
-            // ? Transform the result to prevent nested data
+
             transformResponse: (response: IProduct[]) => response
         }),
         // ? Query: Get a single product
