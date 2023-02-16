@@ -38,7 +38,7 @@ function Products() {
                                 <div className="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200"></div>{' '}
                                 <div className="flex space-x-4 mb-6 text-sm font-medium">
                                     <div className="flex-auto ">
-                                        <button onClick={() => handleAddToCart(product)} className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit">
+                                        <button onClick={() => dispatch(addToCart(product))} className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit">
                                             Add to Cart
                                         </button>
                                         <button className="h-10 mt-4 px-6 font-semibold rounded-md border border-slate-200 text-slate-900" type="button">

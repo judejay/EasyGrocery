@@ -28,8 +28,14 @@ const cartSlice = createSlice({
     reducers: {
         addToCart(state, action: PayloadAction<IProduct>) {
             const itemIndex = getItemIndex(state.items, action.payload.groceryId);
-            if (itemIndex && itemIndex < 0) state.items.push(action.payload);
-            else state.items[itemIndex].quantity! += action.payload.quantity!;
+            if (itemIndex && itemIndex < 0) {
+                state.items.push(action.payload);
+                console.log('itemIndex', itemIndex);
+            } else {
+                console.log('itemIndex', itemIndex);
+
+                state.items[itemIndex].quantity!++;
+            }
         },
         // removeFromCart(state, action: PayloadAction<{ groceryId: string }>) {
         //     return state.items.filter((item) => item.groceryId !== action.payload.groceryId);
