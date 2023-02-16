@@ -32,7 +32,7 @@ const Product = ({ groceryId, name, price, quantity, quantityInStock, slug, desc
             <div className="flex space-x-4 mb-6 text-sm font-medium">
                 <div className="flex-auto ">
                     <button className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit">
-                        At to Cart
+                        Add to Cart
                     </button>
                     <button className="h-10 mt-4 px-6 font-semibold rounded-md border border-slate-200 text-slate-900" type="button">
                         Remove from Cart
