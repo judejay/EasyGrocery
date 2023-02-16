@@ -2,6 +2,8 @@ import { Fragment, useState } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { faShoppingCart, faBars, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useAppSelector } from '../../redux/hooks';
+import { getMemoizedNumItems } from '../../features/cartSlice';
 
 type CartDrawerProps = {
     openCart: boolean;
@@ -9,6 +11,8 @@ type CartDrawerProps = {
 };
 
 const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
+    const numItems = useAppSelector(getMemoizedNumItems);
+
     return (
         <Transition.Root show={openCart} as={Fragment}>
             <Dialog as="div" className="relative z-10" onClose={setOpenCart}>
@@ -60,7 +64,7 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
                                     </Transition.Child>
                                     <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
                                         <div className="px-4 sm:px-6">
-                                            <Dialog.Title className="text-lg font-medium text-gray-900">Panel title</Dialog.Title>
+                                            <Dialog.Title className="text-lg font-medium text-gray-900">{numItems}</Dialog.Title>
                                         </div>
                                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
                                             {/* Replace with your content */}

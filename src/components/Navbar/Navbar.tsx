@@ -77,8 +77,7 @@ const NavBar = ({ setOpenCart, openCart }: NavBarProps) => {
                                     className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                 >
                                     <span className="sr-only">View notifications</span>
-                                    <FontAwesomeIcon icon={faShoppingCart} />
-                                    {/* <BellIcon className="h-6 w-6" aria-hidden="true" />*/}
+                                    <FontAwesomeIcon className="h-6 w-6" aria-hidden="true" icon={faShoppingCart} />
                                 </button>
 
                                 {/* Profile dropdown */}

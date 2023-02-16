@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Products from './components/Products';
+import Products from './components/Products/Products';
 import Navbar from './components/Navbar/Navbar';
 import CartDrawer from './components/cart/CartDrawer';
 
