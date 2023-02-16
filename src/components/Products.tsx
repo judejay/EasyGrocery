@@ -8,7 +8,7 @@ function Products() {
         <div className="container">
             <div className=" flex flex-wrap">
                 {isLoading && <div> ....Loading</div>}
-                {data && <div> {data.length}</div>}
+
                 {data &&
                     data.map((product, index) => {
                         return (
