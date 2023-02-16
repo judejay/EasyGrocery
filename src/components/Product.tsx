@@ -1,6 +1,6 @@
 import React from 'react';
-import { IProduct } from '../redux/api/products/productAPI';
-import { useAppSelector } from '../redux/hooks';
+import { IProduct } from '../redux/api/products/productsSlice';
+//import { useAppSelector } from '../redux/hooks';
 import { nf } from '../helpers/numberFormatter';
 type ProductProps = {
     groceryId: string;
@@ -8,11 +8,12 @@ type ProductProps = {
     price: number;
     description: string;
     quantity?: number | undefined;
+    quantityInStock: number | undefined;
     slug: string;
     image: string;
 };
 
-const Product = ({ groceryId, name, price, quantity, slug, description, image }: ProductProps) => {
+const Product = ({ groceryId, name, price, quantity, quantityInStock, slug, description, image }: ProductProps) => {
     return (
         <div className="w-48  bg-white shadow mx-auto px-4 mt-4 rounded  ">
             <div className=" flex-row font-sans ">

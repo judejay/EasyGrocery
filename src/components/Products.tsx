@@ -1,13 +1,14 @@
 import React from 'react';
-import { useGetProductsQuery } from '../redux/api/products/productAPI';
+import { useGetProductsQuery } from '../redux/api/products/productsSlice';
 import Product from './Product';
 
 function Products() {
-    const { data, isLoading } = useGetProductsQuery();
+    const { data = [], isLoading } = useGetProductsQuery();
     return (
         <div className="container">
             <div className=" flex flex-wrap">
                 {isLoading && <div> ....Loading</div>}
+                {data && <div> {data.length}</div>}
                 {data &&
                     data.map((product, index) => {
                         return (
@@ -20,6 +21,7 @@ function Products() {
                                 price={product.price}
                                 slug={product.slug}
                                 image={product.image}
+                                quantityInStock={product.quantityInStock}
                             ></Product>
                         );
                     })}

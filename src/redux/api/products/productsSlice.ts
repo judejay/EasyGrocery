@@ -10,11 +10,14 @@ export type IProduct = {
     image: string;
     category: string;
     slug: string;
+    quantityInStock: number;
 };
 
-export const productApi = createApi({
-    reducerPath: 'productApi',
-    baseQuery: fetchBaseQuery({ baseUrl: 'https://localhost:44323/api/' }),
+export const productsSlice = createApi({
+    reducerPath: 'api',
+    baseQuery: fetchBaseQuery({
+        baseUrl: 'https://localhost:44323/api/'
+    }),
     tagTypes: ['Products'],
     endpoints: (builder) => ({
         // ? Query: Get All Products
@@ -79,4 +82,6 @@ export const productApi = createApi({
     })
 });
 
-export const { useCreateProductMutation, useUpdateProductMutation, useDeleteProductMutation, useGetProductsQuery, useGetProductQuery, usePrefetch } = productApi;
+export const { useCreateProductMutation, useUpdateProductMutation, useDeleteProductMutation, useGetProductsQuery, useGetProductQuery, usePrefetch } = productsSlice;
+
+export default productsSlice.reducer;
