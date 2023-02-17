@@ -69,9 +69,10 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
                                         </div>
                                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
                                             {/* Replace with your content */} <Cart></Cart>
-                                            <div className="absolute inset-0 px-4 sm:px-6">
-                                                <div className="h-full border-2 border-dashed border-gray-200" aria-hidden="true" />
-                                            </div>
+                                            <div className="my-8"></div>
+                                            <a href="/" className=" mx-5   bg-gray-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium " aria-current="page">
+                                                Checkout
+                                            </a>
                                             {/* /End replace */}
                                         </div>
                                     </div>
