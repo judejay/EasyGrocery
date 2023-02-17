@@ -1,17 +1,21 @@
-import { Fragment, useState } from 'react';
+import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
 import { faShoppingCart, faBars, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useAppSelector } from '../../redux/hooks';
-import { getMemoizedNumItems } from '../../features/cartSlice';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 
 import Cart from './Cart';
+import { addMembership, IUser } from '../../features/userSlice';
+import { RootState } from '../../redux/store/store';
 type CartDrawerProps = {
     openCart: boolean;
     setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
+    const user: IUser = useAppSelector((state: RootState) => state.user);
+    const dispatch = useAppDispatch();
+
     return (
         <Transition.Root show={openCart} as={Fragment}>
             <Dialog as="div" className="relative z-10 " onClose={setOpenCart}>
@@ -70,10 +74,23 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
                                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
                                             {/* Replace with your content */} <Cart></Cart>
                                             <div className="my-8"></div>
-                                            <a href="/" className=" mx-5   bg-gray-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium " aria-current="page">
+                                            <a
+                                                href="/about"
+                                                className=" mx-5   bg-gray-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium "
+                                                aria-current="page"
+                                            >
                                                 Checkout
                                             </a>
-                                            {/* /End replace */}
+                                            {user && user.member == false ? (
+                                                <button
+                                                    onClick={() => dispatch(addMembership(user))}
+                                                    className="bg-red-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium"
+                                                >
+                                                    Membership
+                                                </button>
+                                            ) : (
+                                                <span className="mx-4 my-4 mb-8 flex-auto text-lg font-semibold text-black-900 ">Discount Applied</span>
+                                            )}
                                         </div>
                                     </div>
                                 </Dialog.Panel>

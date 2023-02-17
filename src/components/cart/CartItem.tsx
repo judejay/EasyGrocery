@@ -1,5 +1,3 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
 import { IProduct } from '../../redux/api/products/productsSlice';
 import { nf } from '../../helpers/numberFormatter';
 
@@ -8,7 +6,6 @@ interface Props {
 }
 
 const CartItem = ({ item: { name, price, quantity, image, description } }: Props) => {
-    const dispatch = useDispatch();
     <div className="container"></div>;
 
     return (

@@ -9,6 +9,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart, faBars, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import Logo from '../../logo.svg';
 import User from '../../user.jpg';
+import { IUser } from '../../features/userSlice';
+import { useAppSelector } from '../../redux/hooks';
+import { RootState } from '../../redux/store/store';
 const navigation = [
     { name: 'eShop', href: '#', current: true },
     { name: 'About', href: '#', current: false }
@@ -25,6 +28,7 @@ type NavBarProps = {
 
 const NavBar = ({ setOpenCart, openCart }: NavBarProps) => {
     //const numItems = useAppSelector(getMemoizedNumItems);
+    const user: IUser = useAppSelector((state: RootState) => state.user);
 
     const cartTotalQuantity = useSelector(getMemoizedNumItems);
     const openCartDrawer = () => {
@@ -103,14 +107,14 @@ const NavBar = ({ setOpenCart, openCart }: NavBarProps) => {
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                                                        Your Profile
+                                                        {user.name}
                                                     </a>
                                                 )}
                                             </Menu.Item>
                                             <Menu.Item>
                                                 {({ active }) => (
                                                     <a href="#" className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}>
-                                                        Settings
+                                                        Membership: {user.member.toString()}
                                                     </a>
                                                 )}
                                             </Menu.Item>

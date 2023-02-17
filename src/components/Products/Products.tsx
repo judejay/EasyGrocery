@@ -1,6 +1,4 @@
-import React from 'react';
 import { useGetProductsQuery } from '../../redux/api/products/productsSlice';
-import { IProduct } from '../../redux/api/products/productsSlice';
 import { nf } from '../../helpers/numberFormatter';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../features/cartSlice';
@@ -9,10 +7,10 @@ function Products() {
     const { data = [], isLoading } = useGetProductsQuery();
     const dispatch = useDispatch();
 
-    const handleAddToCart = (product: any) => {
-        dispatch(addToCart(product));
-        //    navigate(`/cart`);
-    };
+    // const handleAddToCart = (product: any) => {
+    //     dispatch(addToCart(product));
+    //     //    navigate(`/cart`);
+    // };
     return (
         <div className="container">
             <div className=" flex flex-wrap">

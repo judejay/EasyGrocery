@@ -3,11 +3,13 @@ import { configureStore } from '@reduxjs/toolkit';
 //import rootReducer from './rootReducer';
 import cartReducer from '../../features/cartSlice';
 import { productsSlice } from '../api/products/productsSlice';
+import userReducer from '../../features/userSlice';
 
 export const store = configureStore({
     reducer: {
         cart: cartReducer,
-        [productsSlice.reducerPath]: productsSlice.reducer
+        [productsSlice.reducerPath]: productsSlice.reducer,
+        user: userReducer
     },
     devTools: process.env.NODE_ENV !== 'production',
 
@@ -27,4 +29,5 @@ export default store;
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
+
 //export type AppDispatch = typeof store.dispatch;
