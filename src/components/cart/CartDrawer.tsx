@@ -5,17 +5,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppSelector } from '../../redux/hooks';
 import { getMemoizedNumItems } from '../../features/cartSlice';
 
+import Cart from './Cart';
 type CartDrawerProps = {
     openCart: boolean;
     setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
 const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
-    const numItems = useAppSelector(getMemoizedNumItems);
-
     return (
         <Transition.Root show={openCart} as={Fragment}>
-            <Dialog as="div" className="relative z-10" onClose={setOpenCart}>
+            <Dialog as="div" className="relative z-10 " onClose={setOpenCart}>
                 <Transition.Child
                     as={Fragment}
                     enter="ease-in-out duration-500"
@@ -63,11 +62,13 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
                                         </div>
                                     </Transition.Child>
                                     <div className="flex h-full flex-col overflow-y-scroll bg-white py-6 shadow-xl">
-                                        <div className="px-4 sm:px-6">
-                                            <Dialog.Title className="text-lg font-medium text-gray-900">{numItems}</Dialog.Title>
+                                        <div className="   px-4 sm:px-6">
+                                            <Dialog.Title className=" mx-8  text-lg font-medium text-gray-900">
+                                                <FontAwesomeIcon className="h-6 w-6" aria-hidden="true" icon={faShoppingCart} /> Shopping Cart
+                                            </Dialog.Title>
                                         </div>
                                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
-                                            {/* Replace with your content */}
+                                            {/* Replace with your content */} <Cart></Cart>
                                             <div className="absolute inset-0 px-4 sm:px-6">
                                                 <div className="h-full border-2 border-dashed border-gray-200" aria-hidden="true" />
                                             </div>

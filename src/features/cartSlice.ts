@@ -28,13 +28,15 @@ const cartSlice = createSlice({
     reducers: {
         addToCart(state, action: PayloadAction<IProduct>) {
             const itemIndex = getItemIndex(state.items, action.payload.groceryId);
-            if (itemIndex && itemIndex < 0) {
-                state.items.push(action.payload);
-                console.log('itemIndex', itemIndex);
+            if (itemIndex < 0) {
+                //let item = action.payload;
+                // item.quantity = 1;
+                state.items.push({ ...action.payload, quantity: 1 });
+                // itemIndex;
+                // console.log('itemIndex', itemIndex);
             } else {
-                console.log('itemIndex', itemIndex);
-
                 state.items[itemIndex].quantity!++;
+                //  console.log('itemIndex else', itemIndex);
             }
         },
         // removeFromCart(state, action: PayloadAction<{ groceryId: string }>) {
@@ -74,7 +76,7 @@ const cartSlice = createSlice({
 export const getMemoizedNumItems = createSelector(
     (state: RootState) => state.cart.items,
     (items) => {
-        console.log('calling getMemoizedNumItems');
+        //  console.log('calling getMemoizedNumItems');
         let numItems = 0;
         for (let id in items) {
             numItems += items[id].quantity!;

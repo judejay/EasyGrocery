@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { IProduct } from '../../redux/api/products/productsSlice';
 import { RootState } from '../../redux/store/store';
 import CartItem from './CartItem';
+import { nf } from '../../helpers/numberFormatter';
 
 const Cart = () => {
     const items: IProduct[] = useSelector((state: RootState) => state.cart.items);
@@ -10,12 +11,18 @@ const Cart = () => {
     const calculateTotal = (items: IProduct[]) => items.reduce((ack: number, item) => ack + item.price * item.quantity!, 0);
     return (
         <>
-            <h2>Your shopping cart</h2>
-            {items.length === 0 ? <p>No Items in cart</p> : null}
+            <div className=" flex-column font-sans content-center">
+                <div className="flex items-center relative mt-4 ">
+                    <h1 className="mx-4  flex-auto text-lg font-semibold text-black-900">
+                        {`Your shopping cart has `}
+                        {items.length === 0 ? <span>no Items</span> : <span>{items.length} Items </span>}
+                    </h1>
+                </div>
+            </div>
             {items.map((item) => (
                 <CartItem key={item.groceryId} item={item}></CartItem>
             ))}
-            <h2>Total: £{calculateTotal(items).toFixed(2)}</h2>
+            {items.length === 0 ? null : <h2 className="mx-4  flex-auto text-lg font-semibold text-black-900">Total: {nf.format(calculateTotal(items))}</h2>}
         </>
     );
 };

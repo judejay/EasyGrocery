@@ -6,7 +6,7 @@ import Navbar from './components/Navbar/Navbar';
 import CartDrawer from './components/cart/CartDrawer';
 
 function App() {
-    const [openCart, setOpenCart] = useState(true);
+    const [openCart, setOpenCart] = useState(false);
 
     return (
         <div className="App">

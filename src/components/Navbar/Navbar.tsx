@@ -24,12 +24,14 @@ type NavBarProps = {
 };
 
 const NavBar = ({ setOpenCart, openCart }: NavBarProps) => {
+    //const numItems = useAppSelector(getMemoizedNumItems);
+
     const cartTotalQuantity = useSelector(getMemoizedNumItems);
     const openCartDrawer = () => {
         setOpenCart(!openCart);
     };
     return (
-        <Disclosure as="nav" className="bg-gradient-to-r from-slate-500 to-slate-700">
+        <Disclosure as="nav" className="bg-gradient-to-r from-slate-200 to-slate-100">
             {({ open }) => (
                 <>
                     <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -74,16 +76,16 @@ const NavBar = ({ setOpenCart, openCart }: NavBarProps) => {
                                 <button
                                     onClick={openCartDrawer}
                                     type="button"
-                                    className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                                    className="rounded-full bg-white p-1 text-gray-400 hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                                 >
                                     <span className="sr-only">View notifications</span>
-                                    <FontAwesomeIcon className="h-6 w-6" aria-hidden="true" icon={faShoppingCart} />
-                                </button>
-
+                                    <FontAwesomeIcon className="h-6 w-6" aria-hidden="true" icon={faShoppingCart} />{' '}
+                                    {cartTotalQuantity > 0 ? <span className="font-bold text-red-600 origin-right text-lg"> {cartTotalQuantity} </span> : null}{' '}
+                                </button>{' '}
                                 {/* Profile dropdown */}
                                 <Menu as="div" className="relative ml-3">
                                     <div>
-                                        <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
+                                        <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 focus:ring-offset-gray-800">
                                             <span className="sr-only">Open user menu</span>
                                             <img className="h-8 w-8 rounded-full" src={User} alt="user icon" />
                                         </Menu.Button>
