@@ -75,7 +75,7 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
                                             {/* Replace with your content */} <Cart></Cart>
                                             <div className="my-8"></div>
                                             <a
-                                                href="/about"
+                                                href="/checkout"
                                                 className=" mx-5   bg-gray-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium "
                                                 aria-current="page"
                                             >

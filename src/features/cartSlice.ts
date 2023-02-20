@@ -38,7 +38,11 @@ const cartSlice = createSlice({
         }
         // removeFromCart(state, action: PayloadAction<{ groceryId: string }>) {
         //     return state.items.filter((item) => item.groceryId !== action.payload.groceryId);
-        // },
+        // }
+        // removeFromCart(state, action: PayloadAction<{ groceryId: string }>) {
+        //     return state.items.filter((item) => item.groceryId !== action.payload.groceryId);
+        // }
+        //,
         // incrementQuantity(state, action: PayloadAction<{ id: string }>) {
         //     const itemIndex = getItemIndex(state, action.payload.id);
         //     state[itemIndex].quantity! += 1;

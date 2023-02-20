@@ -4,15 +4,14 @@ import './App.css';
 import Products from './components/Products/Products';
 import Navbar from './components/Navbar/Navbar';
 import CartDrawer from './components/cart/CartDrawer';
+import Layout from './components/common/Layout';
 
 function App() {
-    const [openCart, setOpenCart] = useState(false);
-
     return (
         <div className="App">
-            <Navbar openCart={openCart} setOpenCart={setOpenCart}></Navbar>
-            <CartDrawer openCart={openCart} setOpenCart={setOpenCart}></CartDrawer>
-            <Products></Products>
+            <div className="container min-h-screen flex flex-col mx-auto">
+                <Layout></Layout>
+            </div>
         </div>
     );
 }
