@@ -5,13 +5,23 @@ export interface IUser {
     member: boolean;
     membershipPaid: boolean;
     membershipId: number;
+    houseNumber: string;
+    streetname: string;
+    town: string;
+    postCode: string;
+    country: string;
 }
 
 const initialState: IUser = {
     name: 'John Doe',
     member: false,
     membershipPaid: false,
-    membershipId: 123455
+    membershipId: 123455,
+    houseNumber: '1',
+    streetname: 'High street',
+    town: 'Newark',
+    postCode: 'NW12 5JX',
+    country: 'UK'
 };
 
 const userSlice = createSlice({

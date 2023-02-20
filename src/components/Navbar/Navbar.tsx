@@ -68,7 +68,7 @@ const NavBar = ({ setOpenCart, openCart }: NavBarProps) => {
                                                 key={item.name}
                                                 to={item.href}
                                                 className={({ isActive }): any => {
-                                                    return 'px-3 py-2 rounded-md text-sm font-medium ' + (isActive ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white');
+                                                    return 'px-3 py-2 rounded-md text-sm font-medium ' + (isActive ? 'bg-gray-900 text-white' : 'text-gray-900 hover:bg-gray-700 hover:text-white');
                                                 }}
                                             >
                                                 {item.name}

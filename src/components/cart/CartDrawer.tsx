@@ -8,6 +8,7 @@ import Cart from './Cart';
 import { addMembership, IUser } from '../../features/userSlice';
 import { RootState } from '../../redux/store/store';
 import { IProduct } from '../../redux/api/products/productsSlice';
+import { NavLink } from 'react-router-dom';
 type CartDrawerProps = {
     openCart: boolean;
     setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
@@ -79,21 +80,21 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
                                                 {noItems ? (
                                                     <div> </div>
                                                 ) : (
-                                                    <div>
-                                                        <a
-                                                            href="/checkout"
+                                                    <>
+                                                        <button
                                                             className=" mx-5   bg-gray-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium "
                                                             aria-current="page"
+                                                            onClick={() => setOpenCart(false)}
                                                         >
-                                                            Checkout
-                                                        </a>
+                                                            <NavLink to="checkout">Checkout</NavLink>
+                                                        </button>{' '}
                                                         <button
                                                             onClick={() => dispatch(addMembership(user))}
                                                             className="bg-red-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium"
                                                         >
                                                             Membership £5.00
                                                         </button>
-                                                    </div>
+                                                    </>
                                                 )}
                                             </div>
                                         </div>
