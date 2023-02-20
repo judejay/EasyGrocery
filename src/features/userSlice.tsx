@@ -3,11 +3,15 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export interface IUser {
     name: string;
     member: boolean;
+    membershipPaid: boolean;
+    membershipId: number;
 }
 
 const initialState: IUser = {
     name: 'John Doe',
-    member: false
+    member: false,
+    membershipPaid: false,
+    membershipId: 123455
 };
 
 const userSlice = createSlice({
@@ -16,8 +20,8 @@ const userSlice = createSlice({
     reducers: {
         addMembership(state, action: PayloadAction<IUser>) {
             if (state.member == false) {
-                console.log(state);
-                console.log(action);
+                // console.log(state);
+                //  console.log(action);
                 return (state = { ...action.payload, member: true });
                 // console.log(state);
             } else {

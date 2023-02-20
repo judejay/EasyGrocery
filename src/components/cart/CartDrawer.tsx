@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import Cart from './Cart';
 import { addMembership, IUser } from '../../features/userSlice';
 import { RootState } from '../../redux/store/store';
+import { IProduct } from '../../redux/api/products/productsSlice';
 type CartDrawerProps = {
     openCart: boolean;
     setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
@@ -15,7 +16,8 @@ type CartDrawerProps = {
 const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
     const user: IUser = useAppSelector((state: RootState) => state.user);
     const dispatch = useAppDispatch();
-
+    const items: IProduct[] = useAppSelector((state: RootState) => state.cart.items);
+    let noItems = items.length === 0;
     return (
         <Transition.Root show={openCart} as={Fragment}>
             <Dialog as="div" className="relative z-10 " onClose={setOpenCart}>
@@ -73,24 +75,27 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
                                         </div>
                                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
                                             {/* Replace with your content */} <Cart></Cart>
-                                            <div className="my-8"></div>
-                                            <a
-                                                href="/checkout"
-                                                className=" mx-5   bg-gray-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium "
-                                                aria-current="page"
-                                            >
-                                                Checkout
-                                            </a>
-                                            {user && user.member == false ? (
-                                                <button
-                                                    onClick={() => dispatch(addMembership(user))}
-                                                    className="bg-red-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium"
-                                                >
-                                                    Membership
-                                                </button>
-                                            ) : (
-                                                <span className="mx-4 my-4 mb-8 flex-auto text-lg font-semibold text-black-900 ">Discount Applied</span>
-                                            )}
+                                            <div className="my-8">
+                                                {noItems ? (
+                                                    <div> </div>
+                                                ) : (
+                                                    <div>
+                                                        <a
+                                                            href="/checkout"
+                                                            className=" mx-5   bg-gray-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium "
+                                                            aria-current="page"
+                                                        >
+                                                            Checkout
+                                                        </a>
+                                                        <button
+                                                            onClick={() => dispatch(addMembership(user))}
+                                                            className="bg-red-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium"
+                                                        >
+                                                            Membership £5.00
+                                                        </button>
+                                                    </div>
+                                                )}
+                                            </div>
                                         </div>
                                     </div>
                                 </Dialog.Panel>
