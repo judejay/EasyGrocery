@@ -81,13 +81,15 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
                                                     <div> </div>
                                                 ) : (
                                                     <>
-                                                        <button
-                                                            className=" mx-5   bg-gray-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium "
-                                                            aria-current="page"
-                                                            onClick={() => setOpenCart(false)}
-                                                        >
-                                                            <NavLink to="checkout">Checkout</NavLink>
-                                                        </button>{' '}
+                                                        <NavLink onClick={() => setOpenCart(false)} to="checkout">
+                                                            <button
+                                                                className=" mx-5   bg-gray-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium "
+                                                                aria-current="page"
+                                                            >
+                                                                Checkout
+                                                            </button>{' '}
+                                                        </NavLink>
+
                                                         <button
                                                             onClick={() => dispatch(addMembership(user))}
                                                             className="bg-red-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium"

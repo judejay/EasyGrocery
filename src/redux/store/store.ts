@@ -10,6 +10,7 @@ export const store = configureStore({
         cart: cartReducer,
         [productsSlice.reducerPath]: productsSlice.reducer,
         user: userReducer
+        // [purchaseOrderSlice.reducerPath]: purchaseOrderSlice.reducer
     },
     devTools: process.env.NODE_ENV !== 'production',
 

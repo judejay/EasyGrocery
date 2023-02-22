@@ -1,4 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/dist/query/react';
+import { CartState } from '../../../features/cartSlice';
+import { IUser } from '../../../features/userSlice';
+
+export type PurchaseOrder = IUser & CartState;
 
 export type IProduct = {
     groceryId: string;
@@ -27,63 +31,24 @@ export const productsSlice = createApi({
             },
 
             transformResponse: (response: IProduct[]) => response
+        }),
+        createPurchaseOrder: builder.mutation<PurchaseOrder, any>({
+            query(data) {
+                return {
+                    url: 'PurchaseOrder',
+                    method: 'POST',
+                    body: data,
+                    headers: {
+                        'Content-type': 'application/json; charset=UTF-8'
+                    }
+                };
+            },
+            // invalidatesTags: [{ type: 'purchaseOrder', id: 'LIST' }],
+            transformResponse: (response: { data: { purchaseOrder: PurchaseOrder } }) => response.data.purchaseOrder
         })
-        // ? Query: Get a single product
-        // getProduct: builder.query<IProduct, string>({
-        //     query(id) {
-        //         return `products/${id}`;
-        //     },
-        //     transformResponse: (response: { data: { product: IProduct } }, args, meta) => response.data.product,
-        //     providesTags: (result, error, id) => [{ type: 'Products', id }]
-        // }),
-        // ? Mutation: Create a product
-        // createProduct: builder.mutation<IProduct, FormData>({
-        //     query(data) {
-        //         return {
-        //             url: 'products',
-        //             method: 'POST',
-        //             credentials: 'include',
-        //             body: data
-        //         };
-        //     },
-        //     invalidatesTags: [{ type: 'Products', id: 'LIST' }],
-        //     transformResponse: (response: { data: { product: IProduct } }) => response.data.product
-        // }),
-        // // ? Mutation: Update Product
-        // updateProduct: builder.mutation<IProduct, { id: string; formData: FormData }>({
-        //     query({ id, formData }) {
-        //         return {
-        //             url: `products/${id}`,
-        //             method: 'PATCH',
-        //             credentials: 'include',
-        //             body: formData
-        //         };
-        //     },
-        //     invalidatesTags: (result, error, { id }) =>
-        //         result
-        //             ? [
-        //                   { type: 'Products', id },
-        //                   { type: 'Products', id: 'LIST' }
-        //               ]
-        //             : [{ type: 'Products', id: 'LIST' }],
-        //     transformResponse: (response: { data: { product: IProduct } }) => response.data.product
-        // }),
-        // // ? Mutation: Delete product
-        // deleteProduct: builder.mutation<null, string>({
-        //     query(id) {
-        //         return {
-        //             url: `products/${id}`,
-        //             method: 'DELETE',
-        //             credentials: 'include'
-        //         };
-        //     },
-        //     invalidatesTags: [{ type: 'Products', id: 'LIST' }]
-        // })
     })
 });
 
-// export const { useCreateProductMutation, useUpdateProductMutation, useDeleteProductMutation, useGetProductsQuery, useGetProductQuery, usePrefetch } = productsSlice;
-
-export const { useGetProductsQuery } = productsSlice;
+export const { useGetProductsQuery, useCreatePurchaseOrderMutation } = productsSlice;
 
 export default productsSlice.reducer;
