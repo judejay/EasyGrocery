@@ -35,7 +35,7 @@ function Checkout() {
                     </div>
                 </div>
                 {items.map((item) => (
-                    <CartItem key={item.groceryId} item={item}></CartItem>
+                    <CartItem key={item.productId} item={item}></CartItem>
                 ))}
                 {Noitems ? null : (
                     <h2 className="mx-4 my-8 flex-auto text-lg font-semibold text-black-900">

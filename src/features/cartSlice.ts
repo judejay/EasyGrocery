@@ -20,7 +20,7 @@ const initialState: CartState = {
 };
 
 const getItemIndex = (items: IProduct[], idToFind: string): number => {
-    const ids = items.map((item) => item.groceryId);
+    const ids = items.map((item) => item.productId);
     return ids.indexOf(idToFind);
 };
 
@@ -29,7 +29,7 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart(state, action: PayloadAction<IProduct>) {
-            const itemIndex = getItemIndex(state.items, action.payload.groceryId);
+            const itemIndex = getItemIndex(state.items, action.payload.productId);
             if (itemIndex < 0) {
                 state.items.push({ ...action.payload, quantity: 1 });
             } else {

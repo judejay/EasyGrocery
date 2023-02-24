@@ -5,15 +5,15 @@ import { IUser } from '../../../features/userSlice';
 export type PurchaseOrder = IUser & CartState;
 
 export type IProduct = {
-    groceryId: string;
+    productId: string;
     name: string;
     price: number;
     description: string;
-    countInStock: number;
+    //  countInStock: number;
     quantity?: number;
     image: string;
-    category: string;
-    slug: string;
+    // category: string;
+    //slug: string;
     quantityInStock: number;
 };
 
@@ -27,7 +27,7 @@ export const productsSlice = createApi({
         // ? Query: Get All Products
         getProducts: builder.query<IProduct[], void>({
             query() {
-                return 'Grocery';
+                return 'Product';
             },
 
             transformResponse: (response: IProduct[]) => response

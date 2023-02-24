@@ -27,7 +27,7 @@ const Cart = () => {
                 </div>
             </div>
             {items.map((item) => (
-                <CartItem key={item.groceryId} item={item}></CartItem>
+                <CartItem key={item.productId} item={item}></CartItem>
             ))}
             {calculateFee(user) ? (
                 <>
