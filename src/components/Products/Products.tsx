@@ -1,4 +1,4 @@
-import { IProduct, useGetProductsQuery } from '../../redux/api/products/productsSlice';
+import { IProduct } from '../../redux/api/products/productsSlice';
 import { nf } from '../../helpers/numberFormatter';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../features/cartSlice';

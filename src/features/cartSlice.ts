@@ -1,8 +1,6 @@
 import { createSelector, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IProduct } from '../redux/api/products/productsSlice';
-import { useAppSelector } from '../redux/hooks';
 import { RootState } from '../redux/store/store';
-import { IUser } from './userSlice';
 
 type CheckoutState = 'LOADING' | 'READY' | 'ERROR';
 export interface CartState {
