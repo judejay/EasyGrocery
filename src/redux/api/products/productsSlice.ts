@@ -5,7 +5,7 @@ import { IUser } from '../../../features/userSlice';
 export type PurchaseOrder = IUser & CartState;
 
 export type IProduct = {
-    productId: string;
+    productId: number;
     name: string;
     price: number;
     description: string;
@@ -30,7 +30,10 @@ export const productsSlice = createApi({
                 return 'Product';
             },
 
-            transformResponse: (response: IProduct[]) => response
+            transformResponse: (response: IProduct[]) => {
+                console.log(response);
+                return response;
+            }
         }),
         createPurchaseOrder: builder.mutation<PurchaseOrder, any>({
             query(data) {

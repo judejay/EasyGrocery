@@ -1,0 +1,58 @@
+[
+    {
+        "productId": 1,
+        "description": "Juicy apples",
+        "price": 1.5,
+        "image": "https://images.pexels.com/photos/1453713/pexels-photo-1453713.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "quantityInStock": 50,
+        "name": "Apples"
+    },
+    {
+        "productId": 2,
+        "description": "Fresh bananas",
+        "price": 3.5,
+        "image": "https://images.pexels.com/photos/1093038/pexels-photo-1093038.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "quantityInStock": 50,
+        "name": "Bananas"
+    },
+    {
+        "productId": 3,
+        "description": "Juicy watermelon",
+        "price": 2.5,
+        "image": "https://images.pexels.com/photos/1313267/pexels-photo-1313267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "quantityInStock": 50,
+        "name": "Watermelon"
+    },
+    {
+        "productId": 4,
+        "description": "Juicy grapefruit",
+        "price": 2,
+        "image": "https://images.pexels.com/photos/2247211/pexels-photo-2247211.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "quantityInStock": 50,
+        "name": "Grapefruit"
+    },
+    {
+        "productId": 5,
+        "description": "The best of cows",
+        "price": 1.99,
+        "image": "https://images.pexels.com/photos/248412/pexels-photo-248412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "quantityInStock": 50,
+        "name": "Milk"
+    },
+    {
+        "productId": 6,
+        "description": "Easy toast",
+        "price": 1.99,
+        "image": "https://images.pexels.com/photos/166021/pexels-photo-166021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "quantityInStock": 50,
+        "name": "Bread"
+    },
+    {
+        "productId": 7,
+        "description": "Wild chicken",
+        "price": 1.99,
+        "image": "https://images.pexels.com/photos/600615/pexels-photo-600615.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+        "quantityInStock": 50,
+        "name": "Eggs"
+    }
+]

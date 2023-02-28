@@ -1,16 +1,19 @@
-import { useGetProductsQuery } from '../../redux/api/products/productsSlice';
+import { IProduct, useGetProductsQuery } from '../../redux/api/products/productsSlice';
 import { nf } from '../../helpers/numberFormatter';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../../features/cartSlice';
+import products from '../../redux/api/products/products.json';
 
 function Products() {
-    const { data = [], isLoading } = useGetProductsQuery();
+    //frontend changes
+    //const { data = [], isLoading } = useGetProductsQuery();
+    var data: IProduct[] = Object.values(products);
     const dispatch = useDispatch();
 
     return (
         <div className="container">
             <div className=" flex flex-wrap">
-                {isLoading && <div> ....Loading</div>}
+                {/* {isLoading && <div> ....Loading</div>} */}
 
                 {data &&
                     data.map((product, index) => {

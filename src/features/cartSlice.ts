@@ -19,7 +19,7 @@ const initialState: CartState = {
     cartTotalAmount: 0
 };
 
-const getItemIndex = (items: IProduct[], idToFind: string): number => {
+const getItemIndex = (items: IProduct[], idToFind: number): number => {
     const ids = items.map((item) => item.productId);
     return ids.indexOf(idToFind);
 };
