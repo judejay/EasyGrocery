@@ -7,10 +7,6 @@ function Products() {
     const { data = [], isLoading } = useGetProductsQuery();
     const dispatch = useDispatch();
 
-    // const handleAddToCart = (product: any) => {
-    //     dispatch(addToCart(product));
-    //     //    navigate(`/cart`);
-    // };
     return (
         <div className="container">
             <div className=" flex flex-wrap">

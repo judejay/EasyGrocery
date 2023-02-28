@@ -43,7 +43,6 @@ export const productsSlice = createApi({
                     }
                 };
             },
-            // invalidatesTags: [{ type: 'purchaseOrder', id: 'LIST' }],
             transformResponse: (response: { data: { purchaseOrder: PurchaseOrder } }) => response.data.purchaseOrder
         })
     })
