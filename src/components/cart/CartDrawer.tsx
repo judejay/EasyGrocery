@@ -1,6 +1,6 @@
 import { Fragment } from 'react';
 import { Dialog, Transition } from '@headlessui/react';
-import { faShoppingCart, faBars, faWindowClose } from '@fortawesome/free-solid-svg-icons';
+import { faShoppingCart, faWindowClose } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 

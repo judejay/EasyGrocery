@@ -29,15 +29,11 @@ const userSlice = createSlice({
     initialState,
     reducers: {
         addMembership(state, action: PayloadAction<IUser>) {
-            if (state.member == false) {
-                // console.log(state);
-                //  console.log(action);
+            if (state.member === false) {
                 return (state = { ...action.payload, member: true });
-                // console.log(state);
             } else {
                 return state;
             }
-            //  console.log(state);
         }
     }
 });

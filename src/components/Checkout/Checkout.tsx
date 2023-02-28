@@ -9,13 +9,12 @@ import CartItem from '../cart/CartItem';
 import { useCreatePurchaseOrderMutation } from '../../redux/api/products/productsSlice';
 
 function Checkout() {
-    const [createPurchaseOrder, response] = useCreatePurchaseOrderMutation();
+    const [createPurchaseOrder] = useCreatePurchaseOrderMutation();
     const items: IProduct[] = useAppSelector((state: RootState) => state.cart.items);
     const numberOfItems = useAppSelector(getMemoizedNumItems);
     const Noitems = items.length === 0;
     const user = useAppSelector((state: RootState) => state.user);
     const Membership = (user: IUser) => user.member === true;
-    const calculateFee = (user: IUser) => user.member && user.membershipPaid === false;
     const calculateTotalNoMembership = (items: IProduct[]) => items.reduce((ack: number, item) => ack + item.price * item.quantity!, 0);
     const calculateTotalMembership = (items: IProduct[]) => items.reduce((ack: number, item) => ack + item.price * item.quantity!, 0) * 0.8;
     const onHandleSubmit = (user: IUser, items: IProduct[]) => {
