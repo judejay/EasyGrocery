@@ -19,7 +19,6 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
     const user: IUser = useAppSelector((state: RootState) => state.user);
     const dispatch = useAppDispatch();
     const items: IProduct[] = useAppSelector((state: RootState) => state.cart.items);
-    let noItems = items.length === 0;
     const numberOfItems = useAppSelector(getMemoizedNumItems);
 
     return (
@@ -80,7 +79,7 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
                                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
                                             {/* Replace with your content */} <Cart></Cart>
                                             <div className="my-8">
-                                                {numberOfItems == 0 ? (
+                                                {numberOfItems === 0 ? (
                                                     <div> </div>
                                                 ) : (
                                                     <>
