@@ -18,7 +18,6 @@ type CartDrawerProps = {
 const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
     const user: IUser = useAppSelector((state: RootState) => state.user);
     const dispatch = useAppDispatch();
-    const items: IProduct[] = useAppSelector((state: RootState) => state.cart.items);
     const numberOfItems = useAppSelector(getMemoizedNumItems);
 
     return (
