@@ -7,7 +7,6 @@ import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import Cart from './Cart';
 import { addMembership, IUser } from '../../features/userSlice';
 import { RootState } from '../../redux/store/store';
-import { IProduct } from '../../redux/api/products/productsSlice';
 import { NavLink } from 'react-router-dom';
 import { getMemoizedNumItems } from '../../features/cartSlice';
 type CartDrawerProps = {
