@@ -9,6 +9,7 @@ import { addMembership, IUser } from '../../features/userSlice';
 import { RootState } from '../../redux/store/store';
 import { IProduct } from '../../redux/api/products/productsSlice';
 import { NavLink } from 'react-router-dom';
+import { getMemoizedNumItems } from '../../features/cartSlice';
 type CartDrawerProps = {
     openCart: boolean;
     setOpenCart: React.Dispatch<React.SetStateAction<boolean>>;
@@ -19,6 +20,8 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
     const dispatch = useAppDispatch();
     const items: IProduct[] = useAppSelector((state: RootState) => state.cart.items);
     let noItems = items.length === 0;
+    const numberOfItems = useAppSelector(getMemoizedNumItems);
+
     return (
         <Transition.Root show={openCart} as={Fragment}>
             <Dialog as="div" className="relative z-10 " onClose={setOpenCart}>
@@ -77,7 +80,7 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
                                         <div className="relative mt-6 flex-1 px-4 sm:px-6">
                                             {/* Replace with your content */} <Cart></Cart>
                                             <div className="my-8">
-                                                {noItems ? (
+                                                {numberOfItems == 0 ? (
                                                     <div> </div>
                                                 ) : (
                                                     <>
@@ -89,15 +92,14 @@ const CartDrawer = ({ openCart, setOpenCart }: CartDrawerProps) => {
                                                                 Checkout
                                                             </button>{' '}
                                                         </NavLink>
-
-                                                        <button
-                                                            onClick={() => dispatch(addMembership(user))}
-                                                            className="bg-red-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium"
-                                                        >
-                                                            Membership £5.00
-                                                        </button>
                                                     </>
                                                 )}
+                                                <button
+                                                    onClick={() => dispatch(addMembership(user))}
+                                                    className="mx-4 bg-red-300 hover:bg-gray-700 hover:text-white text-white px-3 py-2 rounded-md text-sm font-medium"
+                                                >
+                                                    Membership £5.00
+                                                </button>
                                             </div>
                                         </div>
                                     </div>

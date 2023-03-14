@@ -26,9 +26,7 @@ const Cart = () => {
                     </h1>
                 </div>
             </div>
-            {items.map((item) => (
-                <CartItem key={item.productId} item={item}></CartItem>
-            ))}
+            {numberOfItems === 0 ? null : items.map((item) => <CartItem key={item.productId} item={item}></CartItem>)}
             {calculateFee(user) ? (
                 <>
                     <div className=" flex-row font-sans ">
@@ -43,7 +41,7 @@ const Cart = () => {
                 <div className=" mx-4  flex-auto text-lg font-semibold text-red-300">Become a member to get 20% discount </div>
             )}
 
-            {Noitems ? null : (
+            {numberOfItems == 0 ? null : (
                 <h2 className="mx-4 my-8 flex-auto text-lg font-semibold text-black-900">
                     Total: {Membership(user) ? nf.format(calculateTotalMembership(items) + 5) : nf.format(calculateTotalNoMembership(items))}
                 </h2>

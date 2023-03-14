@@ -1,7 +1,7 @@
 import { IProduct } from '../../redux/api/products/productsSlice';
 import { nf } from '../../helpers/numberFormatter';
 import { useDispatch } from 'react-redux';
-import { addToCart } from '../../features/cartSlice';
+import { addToCart, decrementQuantity } from '../../features/cartSlice';
 import products from '../../redux/api/products/products.json';
 
 function Products() {
@@ -38,7 +38,11 @@ function Products() {
                                         <button onClick={() => dispatch(addToCart(product))} className="h-10 px-6 font-semibold rounded-md bg-black text-white" type="submit">
                                             Add to Cart
                                         </button>
-                                        <button className="h-10 mt-4 px-6 font-semibold rounded-md border border-slate-200 text-slate-900" type="button">
+                                        <button
+                                            onClick={() => dispatch(decrementQuantity(product))}
+                                            className="h-10 mt-4 px-6 font-semibold rounded-md border border-slate-200 text-slate-900"
+                                            type="button"
+                                        >
                                             Remove from Cart
                                         </button>
                                     </div>
